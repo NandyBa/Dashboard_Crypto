@@ -1,5 +1,6 @@
 import unittest
 import os
+import config
 
 class TestConfig(unittest.TestCase):
 
