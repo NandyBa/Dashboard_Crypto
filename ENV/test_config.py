@@ -1,7 +1,7 @@
 import unittest
 import os
 import config
-from binance.client import Client
+from binance.client import Client as ClientBinance
 from coinbase.wallet.client import Client as ClientCoinbase
 
 import importlib
@@ -26,7 +26,7 @@ class TestConfig(unittest.TestCase):
         api_secret = os.getenv('Binance_API_Secret')
 
         try:
-            client = Client(api_key, api_secret, {"verify": True, "timeout": 20})
+            client = ClientBinance(api_key, api_secret, {"verify": True, "timeout": 20})
             client.get_all_orders(symbol='BNBBTC', limit=1)
         except:
             error_raised = True
