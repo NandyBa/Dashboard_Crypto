@@ -9,7 +9,7 @@ importlib.reload(BinanceExchange)
 
 
 
-class TestConfig(TestCase):
+class TestBinanceExchange(TestCase):
 
     @mock.patch('binance.client.Client.get_account', return_value = {'makerCommission': 10, 'takerCommission': 10, 'buyerCommission': 0, 
         'sellerCommission': 0, 'canTrade': True, 'canWithdraw': True, 'canDeposit': True,
