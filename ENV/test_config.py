@@ -29,7 +29,12 @@ class TestConfig(unittest.TestCase):
         self.assertFalse(error_raised, "Invalid Bianance credentials")
 
     def test_check_presence_of_Coinbase_API_Key(self):
-        key = os.getenv('coinbase_API_Key')
+        key = os.getenv('Coinbase_API_Key')
+        self.assertIsNotNone(key)
+        self.assertIsNot(key, "")
+
+    def test_check_presence_of_Coinbase_API_Secret(self):
+        key = os.getenv('Coinbase_API_Secret')
         self.assertIsNotNone(key)
         self.assertIsNot(key, "")
 
