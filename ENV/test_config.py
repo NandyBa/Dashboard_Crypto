@@ -2,6 +2,10 @@ import unittest
 import os
 import config
 from binance.client import Client
+from coinbase.wallet.client import Client as ClientCoinbase
+
+import importlib
+importlib.reload(config)
 
 class TestConfig(unittest.TestCase):
 
@@ -37,6 +41,19 @@ class TestConfig(unittest.TestCase):
         key = os.getenv('Coinbase_API_Secret')
         self.assertIsNotNone(key)
         self.assertIsNot(key, "")
+
+    def test_check_Coinbase_valid_credentials(self):
+        error_raised = False
+
+        api_key = os.getenv('Coinbase_API_Key')
+        api_secret = os.getenv('Coinbase_API_Secret')
+
+        try:
+            client = ClientCoinbase(api_key, api_secret)
+            client.get_accounts()
+        except:
+            error_raised = True
+        self.assertFalse(error_raised, "Invalid Coinbase credentials")
 
 if __name__ == '__main__':
     unittest.main()
