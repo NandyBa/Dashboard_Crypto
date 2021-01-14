@@ -5,7 +5,7 @@ import os
 class TestCSVCompiler(TestCase):
 
     def compilecsv(self, exchanges, file = "summary_crypto.csv"):
-        return CSVCompiler.compilecsv(exchanges, file)
+        return CSVCompiler.CSVCompiler().compilecsv(exchanges, file)
 
     @mock.patch('CoinbaseExchange.CoinbaseExchange.get_balances', return_value = [
         {"amount":3, "currency":"BTC"},
