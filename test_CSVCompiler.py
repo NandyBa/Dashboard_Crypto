@@ -30,6 +30,36 @@ class TestCSVCompiler(TestCase):
 	            i += 1
         os.remove('testcompiler.csv')
 
+    @mock.patch('BinanceExchange.BinanceExchange.get_balances', return_value = [
+        {'asset': 'BTC', 'free': 0.00000856, 'locked': 0.00000013},
+        {'asset': 'LTC', 'free': 0.00000000, 'locked': 0.17000000},
+        {'asset': 'LDETH', 'free': 0.56000000, 'locked': 0.00000000},
+        {'asset': 'LDEOS', 'free': 3.00000000, 'locked': 0.00000000}
+    ])
+    def test_Binance_compile(self, mock_get_balances):
+        self.compilecsv(["Binance"], "testcompiler2.csv")
+        with open('testcompiler2.csv', "r") as csvfile:
+	        i = 0
+	        for row in csvfile:
+	            elems = row.replace("\n","").split(";")
+	            if i == 0:
+	                try:
+	                    iBinanceAmount = elems.index("Binance")
+	                    iBinanceAmountFlexibleSaving = elems.index("Binance Flexible Saving")
+	                except:
+	                    raise ValueError("Error in the Binance compiler output")
+	            else:
+	                if(elems[0] == "BTC"):
+	                	self.assertEqual(float(elems[iBinanceAmount]), 8.69e-06)
+	                elif(elems[0] == "LTC"):
+	                	self.assertEqual(float(elems[iBinanceAmount]), 0.17)
+	                elif(elems[0] == "ETH"):
+	                	self.assertEqual(float(elems[iBinanceAmountFlexibleSaving]), 0.56)
+	                elif(elems[0] == "EOS"):
+	                	self.assertEqual(float(elems[iBinanceAmountFlexibleSaving]), 3)
+	            i += 1
+        os.remove('testcompiler2.csv')
+
 
 if __name__ == '__main__':
     unittest.main()
