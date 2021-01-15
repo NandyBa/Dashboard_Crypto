@@ -14,5 +14,5 @@ class BinanceExchange():
 		info = self.CLIENT.get_account()
 		for asset in info['balances']:
 			if float(asset['free']) != 0 or float(asset['locked']) != 0:
-				balances.append(asset)
+				balances.append({'asset': asset['asset'], 'free': float(asset['free']), 'locked': float(asset['locked'])})
 		return balances

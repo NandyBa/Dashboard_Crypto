@@ -30,10 +30,10 @@ class TestBinanceExchange(TestCase):
     def test_get_balances(self, mock_get_account):
         b = BinanceExchange.BinanceExchange()
         self.assertEqual(b.get_balances(), [
-             {'asset': 'BTC', 'free': '0.00000856', 'locked': '0.00000013'},
-             {'asset': 'LTC', 'free': '0.00000000', 'locked': '0.17000000'},
-             {'asset': 'ETH', 'free': '0.56000000', 'locked': '0.00000000'},
-             {'asset': 'EOS', 'free': '3.00000000', 'locked': '0.00000000'}
+             {'asset': 'BTC', 'free': 0.00000856, 'locked': 0.00000013},
+             {'asset': 'LTC', 'free': 0.00000000, 'locked': 0.17000000},
+             {'asset': 'ETH', 'free': 0.56000000, 'locked': 0.00000000},
+             {'asset': 'EOS', 'free': 3.00000000, 'locked': 0.00000000}
             ])
         
 
