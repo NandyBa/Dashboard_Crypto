@@ -1,9 +1,10 @@
 import pandas as pd
 import CoinbaseExchange
 import BinanceExchange
+import xlsxwriter
 
 class CSVCompiler():
-    def compilecsv(self, exchanges = [], file = "summary_crypto.csv"):
+    def compilecsv(self, exchanges = [], file = "summary_crypto.xlsx"):
         Coinbase = pd.Series(dtype='int', name="Coinbase")
         Binance = pd.Series(dtype='int', name="Binance")
         BinanceFlexibleSaving = pd.Series(dtype='int', name="BinanceEarn")
@@ -25,4 +26,6 @@ class CSVCompiler():
         
         
         df = pd.DataFrame({ "Coinbase": Coinbase,"Binance": Binance, "Binance Flexible Saving": BinanceFlexibleSaving})
-        df.to_csv(file,sep=';',index=True)
+        writer = pd.ExcelWriter(file, engine='xlsxwriter')
+        df.to_excel(writer, sheet_name="Balances")
+        writer.save()
