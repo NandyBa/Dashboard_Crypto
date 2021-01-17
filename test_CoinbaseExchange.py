@@ -9,7 +9,7 @@ importlib.reload(CoinbaseExchange)
 
 
 
-class TestConfig(TestCase):
+class TestConbaiseExchange(TestCase):
 
     @mock.patch('coinbase.wallet.client.Client.get_accounts', return_value = {"data": [
         {
