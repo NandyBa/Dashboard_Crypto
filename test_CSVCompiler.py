@@ -6,7 +6,7 @@ import openpyxl
 class TestCSVCompiler(TestCase):
 
     def compilecsv(self, exchanges, file = "summary_crypto.xlsx"):
-        return CSVCompiler.CSVCompiler().compilecsv(exchanges, file)
+        CSVCompiler.CSVCompiler().compilecsv(exchanges, file)
 
     @mock.patch('CoinbaseExchange.CoinbaseExchange.get_balances', return_value = [
         {"amount":3, "currency":"BTC"},
