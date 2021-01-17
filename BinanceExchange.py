@@ -16,3 +16,15 @@ class BinanceExchange():
 			if float(asset['free']) != 0 or float(asset['locked']) != 0:
 				balances.append({'asset': asset['asset'], 'free': float(asset['free']), 'locked': float(asset['locked'])})
 		return balances
+
+	def get_Price(self, asset, currency = 'USDT'):
+		try:
+			price = float( self.CLIENT.get_avg_price(symbol=asset+currency)['price'] )
+		except:
+			try:
+				price = float( self.CLIENT.get_avg_price(symbol=asset+'USDT')['price'] )
+			except:
+				raise Exception()
+			else:
+			    price = price / float( self.CLIENT.get_avg_price(symbol=currency+'USDT')['price'] )
+		return price

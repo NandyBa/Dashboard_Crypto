@@ -21,3 +21,12 @@ class CoinbaseExchange():
 				}
 				balances.append(balance)
 		return balances
+
+	def get_Price(self, asset, currency):
+		try:
+			price_info = self.CLIENT.get_buy_price(currency_pair = f"{asset}-{currency}") 
+		except Exception as e:
+			raise e
+		else:
+			price = float(price_info['amount'])
+		return price
