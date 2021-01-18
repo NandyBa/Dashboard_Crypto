@@ -1,4 +1,5 @@
 from unittest import TestCase, mock
+import unittest
 import CSVCompiler
 import os
 import openpyxl
@@ -83,6 +84,64 @@ class TestCSVCompiler(TestCase):
         self.assertEqual(count, 6)
         os.remove(file)
 
+
+    @mock.patch('CoinbaseExchange.CoinbaseExchange.get_balances', return_value = [
+        {"amount":2.5, "currency":"BTC"},
+        {"amount":2, "currency":"ETH"}
+    ])
+    @mock.patch('BinanceExchange.BinanceExchange.get_balances', return_value = [
+        {'asset': 'BTC', 'free': 0.5, 'locked': 0},
+        {'asset': 'LTC', 'free': 2, 'locked': 0},
+        {'asset': 'LDETH', 'free': 1, 'locked': 1},
+        {'asset': 'LDEOS', 'free': 3, 'locked': 0}
+    ])
+    @mock.patch('Exchanges.Exchanges.get_Price', side_effect=[
+        30000,      #BTC
+        5,          #EOS
+        1000,       #ETH
+        120,        #LTC
+    ])
+    # Total 
+    # 3 BTC => 90,000
+    # 3 EOS => 15
+    # 4 ETH => 4,000
+    # 2 LTC => 240
+    #
+    def test_compile_financial_statement(self, mock_Coinbase_get_balances, mock_Binance_get_balances, mock_Exchanges_get_Price):
+        file = "testcompiler3.xlsx"
+        csvCompiler = CSVCompiler.CSVCompiler()
+        csvCompiler.compilecsv(["Coinbase","Binance"], file)
+
+        csvCompiler.compile_financial_statement(file)
+
+        wb_obj = openpyxl.load_workbook(file)
+        sheetToRead = wb_obj['Financial Statement']
+
+        number_of_test_passed = 0
+
+        for row in sheetToRead.iter_rows():
+            if row[1].value == "BTC" :
+                self.assertEqual(row[2].value, 30000) # Price for 1 asset
+                self.assertEqual(row[3].value, 90000) # Total for user bag
+                number_of_test_passed += 2
+
+            elif row[1].value == "ETH" :
+                self.assertEqual(row[2].value, 1000) # Price for 1 asset
+                self.assertEqual(row[3].value, 4000) # Total for user bag
+                number_of_test_passed += 2
+
+            elif row[1].value == "LTC" :
+                self.assertEqual(row[2].value, 120) # Price for 1 asset
+                self.assertEqual(row[3].value, 240) # Total for user bag
+                number_of_test_passed += 2
+
+            elif row[1].value == "EOS" :
+                self.assertEqual(row[2].value, 5) # Price for 1 asset
+                self.assertEqual(row[3].value, 15) # Total for user bag
+                number_of_test_passed += 2
+
+        self.assertEqual(number_of_test_passed, 8)
+        os.remove(file)
 
 if __name__ == '__main__':
     unittest.main()
