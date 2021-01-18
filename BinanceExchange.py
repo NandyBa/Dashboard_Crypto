@@ -22,7 +22,10 @@ class BinanceExchange():
 			price = float( self.CLIENT.get_avg_price(symbol=asset+currency)['price'] )
 		except:
 			try:
-				price = float( self.CLIENT.get_avg_price(symbol=asset+'USDT')['price'] )
+				if(asset == "USDT"):
+					price = 1
+				else:
+					price = float( self.CLIENT.get_avg_price(symbol=asset+'USDT')['price'] )
 			except:
 				raise Exception()
 			else:
