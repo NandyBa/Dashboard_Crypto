@@ -18,6 +18,8 @@ class BinanceExchange():
 		return balances
 
 	def get_Price(self, asset, currency = 'USDT'):
+		if asset == "BETH":
+			asset = "ETH" #to return price of ETH for ETH(2.0) stacking
 		try:
 			price = float( self.CLIENT.get_avg_price(symbol=asset+currency)['price'] )
 		except:
