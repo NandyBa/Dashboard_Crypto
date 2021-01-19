@@ -11,7 +11,6 @@ dateparser==1.0.0
 et-xmlfile==1.0.1
 hyperlink==21.0.0
 idna==2.10
-importlib==1.0.4
 incremental==17.5.0
 jdcal==1.4.1
 numpy==1.19.5
