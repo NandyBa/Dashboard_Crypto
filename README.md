@@ -20,5 +20,7 @@ A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez a
 
 ## Utilisation
   python -m main
+  
+En 1 minute en moyenne votre rapport est généré. Plus besoin de se connecter manuellement à tout les échangeurs et créer un excel à la main 😉
 
 
