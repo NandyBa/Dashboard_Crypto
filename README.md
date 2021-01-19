@@ -1,5 +1,7 @@
-Script permettant de générer de façon automatique un excel récapitulatif de votre portefeuille crypto.
+Script permettant de générer de façon automatique et en 1min environ un excel récapitulatif de votre portefeuille crypto.
 Il récupère de façon automatique la liste des cryptos que vous détenez sur les échangeurs et leur valeurs.
+Comme ça plus besoin de tenir un excel à la main 😉
+
 
 ## Echangeurs pris en compte actuelement:
 - Binance
@@ -21,6 +23,3 @@ A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez a
 ## Utilisation
   python -m main
   
-En 1 minute en moyenne votre rapport est généré. Plus besoin de se connecter manuellement à tout les échangeurs et créer un excel à la main 😉
-
-
