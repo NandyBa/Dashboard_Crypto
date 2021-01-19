@@ -20,6 +20,10 @@ A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez a
 - faire un *pip install -r requirements.txt* pour installer toutes les dépendances
 - modifier le fichier config.py
 
+## Créer des API Key / API Secret
+- Créer une [clef API Binance](https://www.binance.com/fr/support/faq/360002502072)
+- Créer une [clef API Coinbase](https://help.coinbase.com/en/pro/other-topics/api/how-do-i-create-an-api-key-for-coinbase-pro)
+
 ## Utilisation
   python -m main
   
