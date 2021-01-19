@@ -10,7 +10,7 @@ Comme ça plus besoin de tenir un excel à la main 😉
 A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez ajouter toute adresse ethereum.
 
 ## Pré-requis
-- Python
+- Python ([installer Python](https://www.python.org/downloads/))
 - pip
 
 ## Installation
