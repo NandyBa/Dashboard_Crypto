@@ -4,3 +4,5 @@ Il récupère de façon automatique la liste des cryptos que vous détenez sur l
 ## Echangeurs pris en compte actuelement:
 - Binance
 - Coinbase
+
+A terme vous pourrez aussi l'utiliser avec d'autres échangeurs
