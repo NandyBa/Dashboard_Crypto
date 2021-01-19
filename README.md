@@ -5,4 +5,4 @@ Il récupère de façon automatique la liste des cryptos que vous détenez sur l
 - Binance
 - Coinbase
 
-A terme vous pourrez aussi l'utiliser avec d'autres échangeurs
+A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez ajouter toute adresse ethereum.
