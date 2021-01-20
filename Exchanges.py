@@ -1,12 +1,18 @@
 import BinanceExchange
 import CoinbaseExchange
 import numpy as np
+import os
+import sys
+sys.path.append("ENV")
+import config
 
 class Exchanges(object):
 
 	def __init__(self):
-		self.Coinbase = CoinbaseExchange.CoinbaseExchange()
-		self.Binance = BinanceExchange.BinanceExchange()
+		if os.getenv("using_Coinbase") == "True":
+			self.Coinbase = CoinbaseExchange.CoinbaseExchange()
+		if os.getenv("using_Binance") == "True":
+			self.Binance = BinanceExchange.BinanceExchange()
 
 	def get_Price(self, asset, currency):
 		prices = []
