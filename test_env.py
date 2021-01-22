@@ -1,11 +1,14 @@
 import unittest
+
+## env import
 import os
-import config
+from dotenv import load_dotenv
+load_dotenv('.env')
+
 from binance.client import Client as ClientBinance
 from coinbase.wallet.client import Client as ClientCoinbase
 
 import importlib
-importlib.reload(config)
 
 class TestConfig(unittest.TestCase):
 
