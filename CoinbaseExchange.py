@@ -1,7 +1,7 @@
+## env import
 import os
-import sys
-sys.path.append("ENV")
-import config
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 from coinbase.wallet.client import Client
 

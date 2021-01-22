@@ -1,8 +1,5 @@
 from unittest import TestCase, mock
 import os
-import sys
-sys.path.append("ENV")
-import config
 import BinanceExchange
 import importlib
 importlib.reload(BinanceExchange)

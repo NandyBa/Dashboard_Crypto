@@ -18,7 +18,7 @@ A terme vous pourrez aussi l'utiliser avec d'autres échangeurs et vous pouvez a
 - Dézipez le dosier
 - Ouvrir un terminal et se rendre jusqu'au dossier avec la commande *cd*
 - faire un *pip install -r requirements.txt* pour installer toutes les dépendances
-- modifiez le fichier config.py (il se trouve dans le dossier ENV) pour:
+- modifiez le fichier .env pour:
   - y ajouter vos clés API.
   - modifier la constante using_Binance ( respectivement using_Coinbase) avec la valeur "True" si vous souhaitez utiliser le service Binance (resp. Coinbase) et "False" dans le cas contraire.
 
