@@ -1,8 +1,6 @@
 language: python
-python:
-- '2.7'
-- '3.3'
-- pypy
+install:
+- pip install -r requirements.txt
 env:
   global:
   - secure: Ga8EIuNsOcjT78cw6XyBRCZCO4ps5cXSkFXP7dzwIqDpwNZp1x3YZ5hQQAnAv6rbq/g4QiM7H08YMmLRpevUuMgFAPd9ezyvHiTjshPdCk0da7gwQeruZH/Cs+SQXdPQJBP5kVrKcVNFUMfqcPieZzcqgVnWWqdujl4vOureQJdZtQlKl60lJtXFAgGitjDmIU0s+NcwQfBP8+Leu7D7isVJ60ucV/7Uw+4B7r3IRlaeV6Dvlken3yizfN8HyFmIq+T+R9qj6qL27+eGlsmHZ4TTJlnYr/yBIVzljlPwP0+gqZ9PdohUf2P0cqA/FfmInyTE0bruBpKYvAZ+j4yGXrcWTM0Ip9NYKppslsX59Ivg1thyWiz1BqkFaEgI0QK1Lk9iHNTq7w904vU7VxBvSshgcczuwmQNfUtQ4vRocAZEiC5/Sc1Y807rsgI3HgtaqH3mTJ5WuTJz2wp/aWo1hSxsaCCGFK6NpHhC/EtWY0mKhOJMQq6S8aQGqVJxKfrxNkVZUbqAP0Kw9Jo26YwRjH2AKJEEsJThJLm0O3XOH02Ht++j4j71GFbHGen/czVNE3DvEnKZcGYJrpBUObhZ4qPnvd3sRFvCv6sGx2E2uCBbE0W8iQa0KYzsgcjcZeSj2jpH1uu9nGXGJP0FlXQPJNbkb4EbVwP47FK9xGO9Xfk=
