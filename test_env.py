@@ -1,10 +1,7 @@
 import unittest
 
-## env import
 import os
-from dotenv import load_dotenv
-load_dotenv('.env')
-
+import env
 from binance.client import Client as ClientBinance
 from coinbase.wallet.client import Client as ClientCoinbase
 

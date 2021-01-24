@@ -2,11 +2,8 @@ import BinanceExchange
 import CoinbaseExchange
 import numpy as np
 
-## env import
 import os
-from dotenv import load_dotenv
-load_dotenv('.env')
-
+import env
 class Exchanges(object):
 
 	def __init__(self):
