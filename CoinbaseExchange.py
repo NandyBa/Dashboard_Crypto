@@ -1,8 +1,5 @@
-## env import
 import os
-from dotenv import load_dotenv
-load_dotenv('.env')
-
+import env
 from coinbase.wallet.client import Client
 
 class CoinbaseExchange():
