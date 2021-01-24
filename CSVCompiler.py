@@ -55,9 +55,10 @@ class CSVCompiler():
 
                 Valorisations[asset] = Prices[asset] * sum_
 
+        _ = financial_statement_sheet.cell(column=2, row=1, value="Percentage")
         _ = financial_statement_sheet.cell(column=2, row=1, value="Abreviation")
         _ = financial_statement_sheet.cell(column=3, row=1, value="EUR/U")
-        _ = financial_statement_sheet.cell(column=4, row=1, value="")
+        _ = financial_statement_sheet.cell(column=4, row=1, value="Valorisation")
         for i in range(2,len(Prices)+2):
             financial_statement_sheet.cell(column=1, row=i, value=Valorisations[i-2]/sum(Valorisations)).number_format = '0.00%'
             _ = financial_statement_sheet.cell(column=2, row=i, value=Prices.index[i-2])
